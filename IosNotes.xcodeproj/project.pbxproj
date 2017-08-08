@@ -12,6 +12,7 @@
 		65A2FF351F39234200E50C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A2FF331F39234200E50C22 /* Main.storyboard */; };
 		65A2FF371F39234200E50C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A2FF361F39234200E50C22 /* Assets.xcassets */; };
 		65A2FF3A1F39234200E50C22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A2FF381F39234200E50C22 /* LaunchScreen.storyboard */; };
+		65A2FF451F3941E200E50C22 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2FF441F3941E200E50C22 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		65A2FF361F39234200E50C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65A2FF391F39234200E50C22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65A2FF3B1F39234200E50C22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A2FF441F3941E200E50C22 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				65A2FF2F1F39234200E50C22 /* AppDelegate.swift */,
 				65A2FF311F39234200E50C22 /* ViewController.swift */,
 				65A2FF331F39234200E50C22 /* Main.storyboard */,
+				65A2FF441F3941E200E50C22 /* DetailViewController.swift */,
 				65A2FF361F39234200E50C22 /* Assets.xcassets */,
 				65A2FF381F39234200E50C22 /* LaunchScreen.storyboard */,
 				65A2FF3B1F39234200E50C22 /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A2FF451F3941E200E50C22 /* DetailViewController.swift in Sources */,
 				65A2FF321F39234200E50C22 /* ViewController.swift in Sources */,
 				65A2FF301F39234200E50C22 /* AppDelegate.swift in Sources */,
 			);

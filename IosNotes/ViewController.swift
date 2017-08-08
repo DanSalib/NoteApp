@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var table: UITableView!
     var data:[String] = []
+    var selectedRow:Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         data.insert(name, atIndex : 0)
         let indexPath:NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         table.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        save()
+        table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+        self.performSegueWithIdentifier("detail", sender: nil)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +52,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         data.removeAtIndex(indexPath.row)
         table.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         save()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("detail", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let detailView:DetailViewController = segue.destinationViewController as! DetailViewController
+        selectedRow = table.indexPathForSelectedRow!.row
+        detailView.setNoteText(data[selectedRow])
     }
     
     func save(){

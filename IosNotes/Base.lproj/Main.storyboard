@@ -30,6 +30,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="S2V-1F-y2e"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="eFA-9B-7ea"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -60,11 +61,54 @@
                     <navigationItem key="navigationItem" id="eqc-Zn-CiA"/>
                     <connections>
                         <outlet property="table" destination="gjd-Xn-RaY" id="HNU-MI-eEx"/>
+                        <segue destination="Egd-Pp-iCe" kind="show" identifier="detail" id="Y0g-9z-Mlb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="429"/>
+        </scene>
+        <!--Note-->
+        <scene sceneID="yaY-FZ-pAe">
+            <objects>
+                <viewController title="Note" id="Egd-Pp-iCe" customClass="DetailViewController" customModule="IosNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C7a-4N-kuF"/>
+                        <viewControllerLayoutGuide type="bottom" id="iUi-Zq-Vki"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Mp-lr-j32">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rO8-yi-Sf0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="736"/>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="rO8-yi-Sf0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="rO8-yi-Sf0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="rO8-yi-Sf0" id="XSB-Ua-JJX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tU-bv-BTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vNr-Hi-gWR">
