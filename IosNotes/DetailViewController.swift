@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.text = text
+        textView.becomeFirstResponder()
     }
     
     func setNoteText(note : String){
