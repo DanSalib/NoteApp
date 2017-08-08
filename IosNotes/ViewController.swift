@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.title = "Notes"
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addNote))
         self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.leftBarButtonItem = editButtonItem()
     }
     
     func addNote() {
@@ -37,6 +38,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
         cell.textLabel?.text = data[indexPath.row]
         return cell
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        table.setEditing(editing, animated: animated)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        data.removeAtIndex(indexPath.row)
+        table.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
     override func didReceiveMemoryWarning() {
