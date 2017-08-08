@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var table: UITableView!
-    var data:[String] = ["Row 1", "Row 2", "Row 3"]
+    var data:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addNote))
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = editButtonItem()
+        load()
     }
     
     func addNote() {
@@ -27,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         data.insert(name, atIndex : 0)
         let indexPath:NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         table.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        
+        save()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +49,19 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         data.removeAtIndex(indexPath.row)
         table.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        save()
+    }
+    
+    func save(){
+        NSUserDefaults.standardUserDefaults().setValue(data, forKey: "notes")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func load(){
+        if let loadedData = NSUserDefaults.standardUserDefaults().valueForKey("notes") as? [String]{
+            data = loadedData
+            table.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
