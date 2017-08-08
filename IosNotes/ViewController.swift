@@ -13,6 +13,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var table: UITableView!
     var data:[String] = []
     var selectedRow:Int = -1
+    var newRowText:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,19 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = editButtonItem()
         load()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if selectedRow == -1 {
+            return
+        }
+        data[selectedRow] = newRowText
+        if newRowText == ""{
+            data.removeAtIndex(selectedRow)
+        }
+        table.reloadData()
+        save()
     }
     
     func addNote() {
@@ -61,6 +76,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailView:DetailViewController = segue.destinationViewController as! DetailViewController
         selectedRow = table.indexPathForSelectedRow!.row
+        detailView.masterView = self
         detailView.setNoteText(data[selectedRow])
     }
     
